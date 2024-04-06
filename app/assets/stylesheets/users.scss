@@ -1,3 +1,19 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.mask {
+  background-color: rgba(255, 255, 255, 0.7)
+}
+
+.section-single {
+  background-image: url("/assets/IMG_2637-f908223678bd19be13cfdadd52e13954e46a06246929cee6dc52ef5aec08eb2c.jpg");
+  background-position: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.img-size {
+  width: 60%;
+  height: 30vw;
+}
