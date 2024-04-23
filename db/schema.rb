@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_02_110613) do
+ActiveRecord::Schema.define(version: 2024_04_22_204211) do
 
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -50,12 +50,22 @@ ActiveRecord::Schema.define(version: 2024_04_02_110613) do
 
   create_table "machines", charset: "utf8mb3", force: :cascade do |t|
     t.string "machin_name"
-    t.string "chassis_type"
-    t.string "motor_type"
+    t.string "machin_image"
     t.float "machin_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "image"
+  end
+
+  create_table "parts", charset: "utf8mb3", force: :cascade do |t|
+    t.string "motor_name"
+    t.string "motor_image"
+    t.string "chassi_name"
+    t.string "chassi_image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "shops", charset: "utf8mb3", force: :cascade do |t|
@@ -65,9 +75,13 @@ ActiveRecord::Schema.define(version: 2024_04_02_110613) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "lap_time_to_race_id"
+    t.string "shop_image"
+    t.string "course_layout"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -75,8 +89,7 @@ ActiveRecord::Schema.define(version: 2024_04_02_110613) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.text "introduction"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

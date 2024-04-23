@@ -7,7 +7,7 @@
 }
 
 .section-single {
-  background-image: url("/assets/IMG_2637-f908223678bd19be13cfdadd52e13954e46a06246929cee6dc52ef5aec08eb2c.jpg");
+  background-image: url("/assets/デフォルト画像/IMG_2637-f908223678bd19be13cfdadd52e13954e46a06246929cee6dc52ef5aec08eb2c.jpg");
   background-position: center;
   width: 100%;
   max-width: 100%;
@@ -22,4 +22,32 @@
   padding: 0.375rem 0.75rem;
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
+}
+
+table th {
+  background-color: #fbc25b;
+  padding: 10px 5px;
+}
+
+table td {
+  background-color: #f9ecd5;
+  padding: 10px 5px;
+}
+
+table {
+  border-collapse: separate !important;
+}
+
+.icon {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #333300;
+}
+
+@media (max-width: 767.98px) {
+  .th_size {
+    font-size: 4vw;
+  }
 }
