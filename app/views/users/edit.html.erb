@@ -6,18 +6,22 @@
         <p class="h5 fw-bold">プロフィール画像</p>
         <%= f.file_field :avatar, class: "form-size d-grid col-12" %>
       </div>
-      <div class="mb-3 col-12 text-start">
-        <%= f.label :name ,"名前", class: "form-label Form__label--required fw-bold fs-5" %>
-        <%= f.text_field :name, class: "form-size d-grid col-12" %>
-      </div>
-      <div class="mb-3 col-12 text-start">
-        <%= f.label :email ,"メールアドレス", class: "form-label Form__label--required fw-bold fs-5" %>
-        <%= f.text_field :email, class: "form-size d-grid col-12" %>
-      </div>
-      <div class="mb-3 col-12 text-start">
-        <%= f.label :introduction ,"ひとこと紹介文", class: "form-label Form__label--required fw-bold fs-5" %>
-        <%= f.text_area :introduction, class: "form-size d-grid col-12 mb-5" %>
-      </div>
+      <% if @user.email == 'guest@example.com'%>
+        <p>ゲストユーザーはユーザー情報の編集ができません。</p>
+      <% else %>
+        <div class="mb-3 col-12 text-start">
+          <%= f.label :name ,"名前", class: "form-label Form__label--required fw-bold fs-5" %>
+          <%= f.text_field :name, class: "form-size d-grid col-12" %>
+        </div>
+        <div class="mb-3 col-12 text-start">
+          <%= f.label :email ,"メールアドレス", class: "form-label Form__label--required fw-bold fs-5" %>
+          <%= f.text_field :email, class: "form-size d-grid col-12" %>
+        </div>
+        <div class="mb-3 col-12 text-start">
+          <%= f.label :introduction ,"ひとこと紹介文", class: "form-label Form__label--required fw-bold fs-5" %>
+          <%= f.text_area :introduction, class: "form-size d-grid col-12 mb-5" %>
+        </div>
+      <% end %>
       <div>
         <ul>
           <%= f.submit "編集を完了する", class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>

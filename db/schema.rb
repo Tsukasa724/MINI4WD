@@ -41,17 +41,17 @@ ActiveRecord::Schema.define(version: 2024_04_22_204211) do
   end
 
   create_table "lap_time_to_races", charset: "utf8mb3", force: :cascade do |t|
-    t.float "lap_time"
-    t.string "shop_name"
+    t.time "lap_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "shop_id"
   end
 
   create_table "machines", charset: "utf8mb3", force: :cascade do |t|
-    t.string "machin_name"
-    t.string "machin_image"
-    t.float "machin_weight"
+    t.string "machine_name"
+    t.string "machine_image"
+    t.float "machine_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 2024_04_22_204211) do
   end
 
   create_table "shops", charset: "utf8mb3", force: :cascade do |t|
+    t.string "shop_name"
     t.string "address"
-    t.time "business_hours"
+    t.string "business_hours"
     t.string "regular_holiday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "lap_time_to_race_id"
-    t.string "shop_image"
+    t.string "shop_gazou"
     t.string "course_layout"
   end
 

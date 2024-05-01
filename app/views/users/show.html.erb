@@ -8,9 +8,9 @@
           <%= image_tag ("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png"), size: "75x75", class:'icon mt-2' %>
         <% end %>
       </div>
-      <p class="h2 text-start text-light"><%= current_user.name %></p>
+      <p class="h2 text-start text-light"><%= @user.name %></p>
       <% if current_user.introduction.present? %>
-        <p class="text-start text-light"><%= current_user.introduction %></p>
+        <p class="text-start text-light"><%= @user.introduction %></p>
       <% end %>
     </div>
     <div class="container col-12 col-md-11 mb-5">
@@ -18,26 +18,26 @@
         <div class="row g-0">
           <div class="col-md-6">
             <div class="card">
-                <% if @machines.present? %>
-                  <% @machines.each do |machine| %>
-                    <% if machine.machin_image.present? %>
-                      <%= image_tag machine.machin_image, class: 'w-100' %>
-                    <% else %>
-                      <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
-                    <% end %>
+              <% if @machines.present? %>
+                <% @machines.each do |machine| %>
+                  <% if machine.machine_image.present? %>
+                    <%= image_tag machine.machine_image, class: 'img-fluid' %>
+                  <% else %>
+                    <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
                   <% end %>
-                <% else %>
-                  <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
                 <% end %>
+              <% else %>
+                <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
+              <% end %>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card-body p-1 h-100 mt-2 mt-lg-5">
+            <div class="card-body p-1 mt-2 mt-lg-5">
               <% @machines.each do |machine| %>
                 <h3 class="card-title bg-body-secondary">マシン名</h3>
-                <p class="card-text h5 fw-bold"><%= machine.machin_name%></p>
+                <p class="card-text h5 fw-bold"><%= machine.machine_name%></p>
                 <h3 class="card-title bg-body-secondary mt-lg-3">マシン重量</h3>
-                <p class="card-text"><small class="text-body-secondary h5 fw-bold"><%= machine.machin_weight%></small></p>
+                <p class="card-text"><small class="text-body-secondary h5 fw-bold"><%= machine.machine_weight%></small></p>
               <% end %>
             </div>
           </div>
@@ -50,7 +50,7 @@
           <div class="card">
             <% if @parts.present? %>
               <% @parts.each do |part| %>
-                <%= image_tag(part.motor_image, class: 'w-100') %>
+                <%= image_tag(part.motor_image, class: 'img-fluid') %>
               <% end %>
             <% else %>
               <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
@@ -64,7 +64,7 @@
           <div class="card">
             <% if @parts.present? %>
               <% @parts.each do |part| %>
-                <%= image_tag(part.chassi_image, class: 'w-100') %>
+                <%= image_tag(part.chassi_image, class: 'img-fluid') %>
               <% end %>
             <% else %>
               <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
@@ -76,99 +76,92 @@
         </div>
       </div>
     </div>
-    <% if current_user.machines.empty? %>
-      <div class="row col">
-        <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
-            <p class="h3 fw-bold mt-3 mb-3">マシン情報 新規登録</p>
-            <%= form_with(model: @machine) do |f| %>
+    <% if current_user && @user == current_user %>
+      <% if current_user.machines.empty? %>
+        <div class="row col">
+          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
+              <p class="h3 fw-bold mt-3 mb-3">マシン情報 新規登録</p>
+              <%= form_with(model: @machine) do |f| %>
+                <div class="mb-3 col-12 text-start">
+                  <p class="h5 fw-bold">マシン画像</p>
+                  <%= f.file_field :machine_image, class: "form-size d-grid col-12" %>
+                </div>
+                <div class="mb-3 col-12 text-start">
+                  <%= f.label :machine_name, "マシン名", class: "form-label Form__label--required fw-bold fs-5" %>
+                  <%= f.text_field :machine_name, class: "form-size d-grid col-12", placeholder: "マシン名を入力" %>
+                </div>
+                <div class="mb-3 col-12 text-start">
+                  <%= f.label :machine_weight, "マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
+                  <%= f.text_field :machine_weight, class: "form-size d-grid col-12 mb-5", placeholder: "マシン重量を入力"%>
+                </div>
+                <%= f.hidden_field :user_id,value: @user.id %>
+                <div>
+                  <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if current_user.parts.empty? %>
+        <div class="row col">
+          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
+            <p class="h3 fw-bold mt-3 mb-3">パーツ情報 新規登録</p>
+            <%= form_with(model: @part, multipart: true) do |f| %>
               <div class="mb-3 col-12 text-start">
-                <p class="h5 fw-bold">マシン画像</p>
-                <%= f.file_field :machin_image, class: "form-size d-grid col-12" %>
+                <%= f.label :motor_name, "モーター", class: "form-label fw-bold fs-5" %>
+                <%= f.select :motor_name, options_for_select(@text_options), {}, class: "form-select form-size d-grid col-12" %>
               </div>
               <div class="mb-3 col-12 text-start">
-                <%= f.label :machin_name, "マシン名", class: "form-label Form__label--required fw-bold fs-5" %>
-                <%= f.text_field :machin_name, class: "form-size d-grid col-12", placeholder: "マシン名を入力" %>
-              </div>
-              <div class="mb-3 col-12 text-start">
-                <%= f.label :machin_weight, "マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
-                <%= f.text_field :machin_weight, class: "form-size d-grid col-12 mb-5", placeholder: "マシン重量を入力"%>
+                <%= f.label :chassi_name, "シャーシ", class: "form-label fw-bold fs-5" %>
+                <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12 mb-5" %>
               </div>
               <%= f.hidden_field :user_id,value: @user.id %>
               <div>
                 <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
               </div>
             <% end %>
+          </div>
         </div>
+      <% end %>
+      <% if current_user.machines.any? %>
+        <%= link_to "マシン情報 編集", edit_machine_path(current_user.machines.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-5 mt-5" %>
+      <% end %>
+      <% if current_user.parts.any? %>
+        <%= link_to "パーツ情報 編集", edit_part_path(current_user.parts.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-5 mt-md-5" %>
+      <% end %>
+      <div class="row col-12 mx-auto mb-4 border rounded bg-body-secondary">
+        <p class="display-5 fw-bold mt-3">登録店舗にラップタイムを投稿</p>
       </div>
+      <div class="dropdown col-8 mx-auto">
+        <button class="btn btn-secondary btn-lg dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          店舗選択
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark w-100">
+          <li><%= link_to "店舗１", shop_path(@shop_categories["店舗１"]), class: "dropdown-item" %></li>
+          <li><%= link_to "店舗２", shop_path(@shop_categories["店舗２"]), class: "dropdown-item" %></li>
+          <li><%= link_to "店舗３", shop_path(@shop_categories["店舗３"]), class: "dropdown-item" %></li>
+          <li><%= link_to "店舗４", shop_path(@shop_categories["店舗４"]), class: "dropdown-item" %></li>
+        </ul>
+      </div> 
     <% end %>
-    <% if current_user.parts.empty? %>
-      <div class="row col">
-        <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
-          <p class="h3 fw-bold mt-3 mb-3">パーツ情報 新規登録</p>
-          <%= form_with(model: @part, multipart: true) do |f| %>
-            <div class="mb-3 col-12 text-start">
-              <%= f.label :motor_name, "モーター", class: "form-label fw-bold fs-5" %>
-              <%= f.select :motor_name, options_for_select(@text_options), {}, class: "form-select form-size d-grid col-12" %>
-            </div>
-            <div class="mb-3 col-12 text-start">
-              <%= f.label :chassi_name, "シャーシ", class: "form-label fw-bold fs-5" %>
-              <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12 mb-5" %>
-            </div>
-            <%= f.hidden_field :user_id,value: @user.id %>
-            <div>
-              <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <% if current_user.machines.any? %>
-      <%= link_to "マシン情報 編集", edit_machine_path(current_user.machines.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-3 mt-5" %>
-    <% end %>
-    <% if current_user.parts.any? %>
-      <%= link_to "パーツ情報 編集", edit_part_path(current_user.parts.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-3 mt-5" %>
-    <% end %>
-    <div class="row mt-4">
-      <p class="h3 fw-bold">ラップタイム一覧</p>
-      <table>
-        <thead>
+    <div class="container col-12 shadow-lg p-3 bg-primary-subtle rounded mt-5">
+      <p class="h3 fw-bold mt-3 mb-3">ラップタイム一覧</p>
+      <table class="table">
+        <thead class="table-warning">
           <tr>
-            <th><span p class="th_size">店舗名</span></th>
-            <th><span p class="th_size">タイム</span></th>
-            <th><span p class="th_size">削除</span></th>
+            <th scope="col">店舗名</th>
+            <th scope="col">ラップタイム</th>
           </tr>
         </thead>
         <tbody>
-          <% if @lap_time_to_races.present? %>
-            <% @lap_time_to_races.each do |lap| %>
-              <tr>
-                <td><%= link_to lap.shop_name, shop_path(lap.shop_id) %></td>
-                <td><%= lap.lap_time %></td>
-              </tr>
-            <% end %>
+          <% @lap_time_to_races.each do |lap| %>
+            <tr>
+              <td><%= link_to lap.shop.shop_name, shop_path(lap.shop) %></td>
+              <td id="lapTimeCell"><%= lap.lap_time.present? ? lap.lap_time.strftime("%H:%M:%S") : "N/A" %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
-    <div class="container">
-      <div class="row col">
-        <p class="h3 fw-bold mt-5 mb-4">ラップタイム 新規登録</p>
-        <%= form_with model: @lap_time_to_race do |f| %>
-          <div class="mb-3 col-12 text-start">
-            <%= f.label :shop_name, "タイムを測ったお店", class: "form-label fw-bold fs-5" %>
-            <%= f.select :shop_name, options_for_select(@text_options3), {}, class: "form-select form-size d-grid col-12" %>
-          </div>
-          <div class="mb-3 col-12 text-start">
-            <%= f.label :lap_time, "ラップタイム", class: "form-label Form__label--required fw-bold fs-5" %>
-            <%= f.text_field :lap_time, class: "form-size d-grid col-12 mb-5", placeholder: "ラップタイムを入力"%>
-          </div>
-          <%= f.hidden_field :user_id,value: @user.id %>
-          <div>
-            <%= f.submit "新規登録", class: "btn btn-primary mb-5" %>
-          </div>
-        <% end %>
-      </div>
-      <%= link_to "プロフィール編集", edit_user_path(current_user), class: "col-8 col-md-5 btn btn-primary mb-3" %>
-    </div>
+    </div> 
   </div>
 </div>

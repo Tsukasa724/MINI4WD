@@ -4,15 +4,15 @@
     <%= form_with(model: @machine) do |f| %>
       <div class="mb-3 col-12 text-start">
         <p class="h5 fw-bold">マシン画像</p>
-        <%= f.file_field :machin_image, class: "form-size d-grid col-12" %>
+        <%= f.file_field :machine_image, class: "form-size d-grid col-12" %>
       </div>
       <div class="mb-3 col-12 text-start">
-        <%= f.label :machin_name ,"マシン名前", class: "form-label Form__label--required fw-bold fs-5" %>
-        <%= f.text_field :machin_name, class: "form-size d-grid col-12" %>
+        <%= f.label :machine_name ,"マシン名前", class: "form-label Form__label--required fw-bold fs-5" %>
+        <%= f.text_field :machine_name, class: "form-size d-grid col-12" %>
       </div>
       <div class="mb-3 col-12 text-start">
-        <%= f.label :machin_weight ,"マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
-        <%= f.text_field :machin_weight, class: "form-size d-grid col-12" %>
+        <%= f.label :machine_weight ,"マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
+        <%= f.text_field :machine_weight, class: "form-size d-grid col-12" %>
       </div>
       <div>
         <ul>

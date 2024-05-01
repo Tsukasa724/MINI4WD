@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  get 'parts/index'
-  get 'chassi2s/index'
-  get 'motor2s/index'
   root 'users#index'
-  get 'users/index'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  
+  devise_for :users, controllers: { 
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
 
-  resources :users, controllers: { registrations: 'registrations' }
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :machines
   resources :lap_time_to_races
   resources :parts
+  resources :shops
 
-  get 'users/sign_in', to: 'sessions#new'
-  delete 'users/sign_out', to: 'sessions#destroy'
+  get 'shops/index'
+  get 'parts/index'
+  get 'users/index'
+
 end

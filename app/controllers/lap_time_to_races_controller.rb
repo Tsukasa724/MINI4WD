@@ -1,7 +1,4 @@
 class LapTimeToRacesController < ApplicationController
-  def index
-
-  end
 
   def new
     @lap_time_to_race = LapTimeToRace.new
@@ -9,8 +6,9 @@ class LapTimeToRacesController < ApplicationController
 
   def create
     @lap_time_to_race = current_user.lap_time_to_races.build(lap_time_to_race_params)
+    @shop = Shop.find(params[:lap_time_to_race][:shop_id])
     if @lap_time_to_race.save
-      redirect_to user_path(current_user)
+      redirect_to shop_path(@shop)
     else
       render "new"
     end
@@ -21,16 +19,11 @@ class LapTimeToRacesController < ApplicationController
   end
 
   def edit
-    @lap_time_to_race = Lap_time_to_race.find(params[:id])
+
   end
 
   def update
-    @lap_time_to_race = Lap_time_to_race.find(params[:id])
-    if @lap_time_to_race.update(params.require(:lap_time_to_race).permit(:lap_time, :shop_name))
-      redirect_to user_path(current_user)
-    else
-      render "edit"
-    end
+
   end
 
   def destroy
@@ -39,6 +32,6 @@ class LapTimeToRacesController < ApplicationController
   private
 
   def lap_time_to_race_params
-    params.require(:lap_time_to_race).permit(:lap_time, :shop_name, :user_id)
+    params.require(:lap_time_to_race).permit(:lap_time, :user_id, :shop_id)
   end
 end

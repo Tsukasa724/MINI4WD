@@ -28,9 +28,8 @@ class UsersController < ApplicationController
     @text_options2 = ["タイプ１", "タイプ２", "タイプ３", "タイプ４", "タイプ５", "ゼロ", "スーパー１", "スーパー２", "FM", "スーパーFM", "FM-A", "スーパーTZ", "スーパーTZ-X", "スーパーX", "スーパーXX", "MS", "MA", "AR", "VS", "VZ"]
     @part.motor_image = image_path_for_motor(@part.motor_name)
     @part.chassi_image = image_path_for_chassi(@part.chassi_name)
-    @lap_time_to_race = LapTimeToRace.new
+    set_shop_categories
     @lap_time_to_races = @user.lap_time_to_races
-    @text_options3 = ["店舗１", "店舗２", "店舗３", "店舗４"]
   end
 
   def edit
@@ -49,5 +48,11 @@ class UsersController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def set_shop_categories
+    @shop_categories = Shop.where(shop_name: %w[店舗１ 店舗２ 店舗３ 店舗４]).to_h { |shop| [shop.shop_name, shop.id] }
   end
 end

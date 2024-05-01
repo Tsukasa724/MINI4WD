@@ -37,5 +37,5 @@ end
 private
 
 def machine_params
-  params.require(:machine).permit(:machin_name, :machin_weight, :chassis_type, :motor_type, :machin_image, :user_id)
+  params.require(:machine).permit(:machine_name, :machine_weight, :chassis_type, :motor_type, :machine_image, :user_id)
 end
