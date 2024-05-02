@@ -38,6 +38,10 @@ group :development, :test do
   gem 'devise-i18n'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'mini_magick'
+  gem 'image_processing', '~> 1.2'
+  gem 'carrierwave'
 end
 
 group :development do

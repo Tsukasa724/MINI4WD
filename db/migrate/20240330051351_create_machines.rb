@@ -1,10 +1,9 @@
 class CreateMachines < ActiveRecord::Migration[6.1]
   def change
     create_table :machines do |t|
-      t.string :machin_name
-      t.string :chassis_type
-      t.string :motor_type
-      t.float :machin_weight
+      t.string :machine_name
+      t.string :machine_image
+      t.float :machine_weight
 
       t.timestamps
     end

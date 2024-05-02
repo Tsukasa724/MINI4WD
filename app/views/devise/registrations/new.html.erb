@@ -1,39 +1,43 @@
-<div class="AccountFormWrapper">
-  <section class="AccountFormContainer">
-    <h2 class="AccountFormContainer__title">新規登録</h2>
+<div class="container shadow-lg p-3 mb-5 bg-primary-subtle rounded">
+  <div class="container shadow-lg p-3 bg-primary-subtle rounded">
+    <div class="AccountFormWrapper">
+      <section class="AccountFormContainer">
+        <p class="AccountFormContainer__title h1 mb-5 bg-body-secondary d-grid col-12 mx-auto">新規登録</p>
 
-    <%= form_with model: @user, url: user_registration_path, class: "Form AccountForm" do |f| %>
-      <div class="mb-3">
-        <%= f.label :name, "ユーザー名", class: "form-label Form__label--required" %>
-        <%= f.text_field :name, class: "form-control", placeholder: "ユーザー名を入力", autocomplete: "name" %>
+        <%= form_with model: @user, url: user_registration_path, class: "Form AccountForm", authenticity_token: true do |f| %>
+          <div class="mb-3">
+            <%= f.label :name, "ユーザー名", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.text_field :name, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "ユーザー名を入力", autocomplete: "name" %>
 
-        <%= render "devise/shared/error_messages", object: @user, key: "name" %>
-      </div>
+            <%= render "devise/shared/error_messages", object: @user, key: "name" %>
+          </div>
 
-      <div class="mb-3">
-        <%= f.label :email, "メールアドレス", class: "form-label Form__label--required" %>
-        <%= f.text_field :email, class: "form-control", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
+          <div class="mb-3">
+            <%= f.label :email, "メールアドレス", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.text_field :email, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
 
-        <%= render "devise/shared/error_messages", object: @user, key: "email" %>
-      </div>
+            <%= render "devise/shared/error_messages", object: @user, key: "email" %>
+          </div>
 
-      <div class="mb-3">
-        <%= f.label :password, "パスワード", class: "form-label Form__label--required" %>
-        <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力" %>
+          <div class="mb-3">
+            <%= f.label :password, "パスワード (6文字以上)", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.password_field :password, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "パスワードを入力" %>
 
-        <%= render "devise/shared/error_messages", object: @user, key: "password" %>
-      </div>
+            <%= render "devise/shared/error_messages", object: @user, key: "password" %>
+          </div>
 
-      <div class="mb-3">
-        <%= f.label :password_confirmation, "確認用パスワード", class: "form-label Form__label--required" %>
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "確認用パスワードを入力" %>
+          <div class="mb-3">
+            <%= f.label :password_confirmation, "確認用パスワード", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.password_field :password_confirmation, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "確認用パスワードを入力" %>
 
-        <%= render "devise/shared/error_messages", object: @user, key: "password_confirmation" %>
-      </div>
+            <%= render "devise/shared/error_messages", object: @user, key: "password_confirmation" %>
+          </div>
 
-      <%= f.submit "新しいアカウントを作成", class: "btn mb-3 btn-outline-primary AccountForm__button AccountForm__button--primary" %>
-    <% end %>
+          <%= f.submit "新しいアカウントを作成", class: "btn mb-3 btn-primary AccountForm__button AccountForm__button--primary d-grid col-12 col-md-6 mx-auto" %>
+        <% end %>
 
-    <%= render "devise/shared/links" %>
-  </section>
+        <%= render "devise/shared/links" %>
+      </section>
+    </div>
+  </div>
 </div>

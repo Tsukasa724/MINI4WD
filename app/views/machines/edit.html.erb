@@ -1,0 +1,25 @@
+<div class="container shadow-lg p-3 mb-3 bg-primary-subtle rounded">
+  <div class="container shadow-lg p-3 bg-primary-subtle rounded">
+    <p class="h3 fw-bold mb-5">マシン情報 編集</p>
+    <%= form_with(model: @machine) do |f| %>
+      <div class="mb-3 col-12 text-start">
+        <p class="h5 fw-bold">マシン画像</p>
+        <%= f.file_field :machine_image, class: "form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :machine_name ,"マシン名前", class: "form-label Form__label--required fw-bold fs-5" %>
+        <%= f.text_field :machine_name, class: "form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :machine_weight ,"マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
+        <%= f.text_field :machine_weight, class: "form-size d-grid col-12" %>
+      </div>
+      <div>
+        <ul>
+          <%= f.submit "編集を完了する", class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
+          <%= link_to "プロフィールへ戻る", user_path(current_user), class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

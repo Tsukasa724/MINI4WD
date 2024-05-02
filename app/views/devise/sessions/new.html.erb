@@ -1,21 +1,26 @@
-<div class="AccountFormWrapper">
-  <section class="AccountFormContainer">
-    <h2 class="AccountFormContainer__title">ログイン</h2>
+<div class="container shadow-lg p-3 mb-5 bg-primary-subtle rounded">
+  <div class="container shadow-lg p-3 bg-primary-subtle rounded">
+    <div class="AccountFormWrapper">
+      <section class="AccountFormContainer">
+        <p class="AccountFormContainer__title h1 mb-5 bg-body-secondary d-grid col-12 mx-auto">ログイン</p>
 
-    <%= form_with model: @user, url: user_session_path, class: "Form AccountForm" do |f| %>
-      <div class="mb-3">
-        <%= f.label :email, "メールアドレス", class: "form-label", for: "exampleInputEmail1" %>
-        <%= f.text_field :email, class: "form-control", for: "exampleInputEmail1", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
-      </div>
+        <%= form_with model: @user, url: user_session_path, class: "Form AccountForm" do |f| %>
+          <div class="mb-3">
+            <%= f.label :email, "メールアドレス (ゲストログインは'guest@example.com'を入力してください)", class: "form-label fw-bold", for: "exampleInputEmail1" %>
+            <%= f.text_field :email, class: "form-size d-grid col-12 col-md-6 mx-auto", for: "exampleInputEmail1", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
+          </div>
 
-      <div class="mb-3">
-        <%= f.label :password, "パスワード", class: "form-label", for: "exampleInputPassword1" %>
-        <%= f.password_field :password, class: "form-control", for: "exampleInputPassword1", placeholder: "パスワードを入力" %>
-      </div>
+          <div class="mb-3">
+            <%= f.label :password, "パスワード (ゲストログインは'gest00'を入力してください)", class: "form-label fw-bold", for: "exampleInputPassword1" %>
+            <%= f.password_field :password, class: "form-size d-grid col-12 col-md-6 mx-auto", for: "exampleInputPassword1", placeholder: "パスワードを入力" %>
+          </div>
 
-      <%= f.submit "ログイン", class: "btn mb-3 btn-outline-primary AccountForm__button AccountForm__button--primary" %>
-    <% end %>
+          <%= f.submit "ログイン", class: "btn mb-3 btn-primary AccountForm__button AccountForm__button--primary d-grid col-12 col-md-6 mx-auto" %>
+        <% end %>
 
-    <%= render "devise/shared/links" %>
-  </section>
+        <%= render "devise/shared/links" %>
+      </section>
+      <%= link_to "パスワードを忘れた方はこちら", new_user_password_path %>
+    </div>
+  </div>
 </div>
