@@ -1,9 +1,6 @@
 FactoryBot.define do
   factory :part do
-    motor_name { "MyString" }
-    motor_image { "MyString" }
-    chassi_name { "MyString" }
-    chassi_image { "MyString" }
-    user_id { 1 }
+    motor_name { "testmotor"}
+    chassi_name { "testchassi"}
   end
 end

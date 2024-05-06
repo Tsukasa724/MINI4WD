@@ -42,6 +42,7 @@ group :development, :test do
   gem 'mini_magick'
   gem 'image_processing', '~> 1.2'
   gem 'carrierwave'
+  gem 'mini_mime', '1.0.3'
 end
 
 group :development do

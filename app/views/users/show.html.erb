@@ -9,7 +9,7 @@
         <% end %>
       </div>
       <p class="h2 text-start text-light"><%= @user.name %></p>
-      <% if current_user.introduction.present? %>
+      <% if current_user && current_user.introduction.present? %>
         <p class="text-start text-light"><%= @user.introduction %></p>
       <% end %>
     </div>
@@ -79,32 +79,32 @@
     <% if current_user && @user == current_user %>
       <% if current_user.machines.empty? %>
         <div class="row col">
-          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
-              <p class="h3 fw-bold mt-3 mb-3">マシン情報 新規登録</p>
-              <%= form_with(model: @machine) do |f| %>
-                <div class="mb-3 col-12 text-start">
-                  <p class="h5 fw-bold">マシン画像</p>
-                  <%= f.file_field :machine_image, class: "form-size d-grid col-12" %>
-                </div>
-                <div class="mb-3 col-12 text-start">
-                  <%= f.label :machine_name, "マシン名", class: "form-label Form__label--required fw-bold fs-5" %>
-                  <%= f.text_field :machine_name, class: "form-size d-grid col-12", placeholder: "マシン名を入力" %>
-                </div>
-                <div class="mb-3 col-12 text-start">
-                  <%= f.label :machine_weight, "マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
-                  <%= f.text_field :machine_weight, class: "form-size d-grid col-12 mb-5", placeholder: "マシン重量を入力"%>
-                </div>
-                <%= f.hidden_field :user_id,value: @user.id %>
-                <div>
-                  <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
-                </div>
-              <% end %>
+          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3 machine_info">
+            <p class="h3 fw-bold mt-3 mb-3">マシン情報 新規登録</p>
+            <%= form_with(model: @machine) do |f| %>
+              <div class="mb-3 col-12 text-start">
+                <p class="h5 fw-bold">マシン画像</p>
+                <%= f.file_field :machine_image, class: "form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :machine_name, "マシン名", class: "form-label Form__label--required fw-bold fs-5" %>
+                <%= f.text_field :machine_name, class: "form-size d-grid col-12", placeholder: "マシン名を入力" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :machine_weight, "マシン重量", class: "form-label Form__label--required fw-bold fs-5" %>
+                <%= f.text_field :machine_weight, class: "form-size d-grid col-12 mb-5", placeholder: "マシン重量を入力"%>
+              </div>
+              <%= f.hidden_field :user_id,value: @user.id %>
+              <div>
+                <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
       <% if current_user.parts.empty? %>
         <div class="row col">
-          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
+          <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3 part_info">
             <p class="h3 fw-bold mt-3 mb-3">パーツ情報 新規登録</p>
             <%= form_with(model: @part, multipart: true) do |f| %>
               <div class="mb-3 col-12 text-start">
