@@ -1,0 +1,49 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  SuggestExtensions: false
+  
+  NewCops: enable
+  
+  DisplayCopNames: true
+  
+  Exclude:
+    - "Gemfile"
+    - "bin/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "lib/**/*"
+    - "config/**/*"
+    - "test/**/*"
+    - "helper/**/*"
+    
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/MethodParameterName:
+  MinNameLength: 1
+
+Metrics/BlockLength:
+  Max: 100
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+Layout/LineLength:
+  Max: 200

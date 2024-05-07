@@ -1,7 +1,10 @@
 class MachinesController < ApplicationController
-
   def new
     @machine = Machine.new
+  end
+
+  def edit
+    @machine = Machine.find(params[:id])
   end
 
   def create
@@ -13,14 +16,6 @@ class MachinesController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
-  def edit
-    @machine = Machine.find(params[:id])
-  end
-
   def update
     @machine = Machine.find(params[:id])
     if @machine.update(machine_params)
@@ -29,11 +24,8 @@ class MachinesController < ApplicationController
       render "edit"
     end
   end
-
-  def destroy
-
-  end
 end
+
 private
 
 def machine_params

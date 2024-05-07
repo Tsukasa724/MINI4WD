@@ -3,7 +3,7 @@ require 'shops_helper'
 
 RSpec.describe ShopsHelper, type: :helper do
   describe '#image_path_for_shop' do
-    ['店舗１', '店舗２', '店舗３', '店舗４'].each do |shop_name|
+    %w[店舗１ 店舗２ 店舗３ 店舗４].each do |shop_name|
       it "選択した店舗名が #{shop_name}の場合の店舗情報" do
         shop_info = helper.image_path_for_shop(shop_name)
         expect(shop_info[:address]).to eq(expected_address_for(shop_name))

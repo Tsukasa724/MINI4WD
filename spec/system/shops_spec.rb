@@ -56,6 +56,6 @@ RSpec.describe "店舗詳細", type: :system do
   end
 
   it '住所が表示されること' do
-    expect(page).to have_content shop.address 
+    expect(page).to have_content shop.address
   end
 end

@@ -80,3 +80,5 @@ ja:
               confirmation: "が確認用パスワードと一致しません。"
             password_confirmation:
               confirmation: "パスワードが一致しません"
+  sessions:
+    logged_in: "guestuserでログインしました。"

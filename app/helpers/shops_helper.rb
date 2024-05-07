@@ -42,5 +42,5 @@ module ShopsHelper
         course_layout: ''
       }
     end
-  end  
+  end
 end
