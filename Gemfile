@@ -34,14 +34,11 @@ group :development, :test do
   gem 'timeout', '0.4.1'
   gem 'racc', '1.7.3'
   gem 'dotenv-rails'
-  gem 'devise'
-  gem 'devise-i18n'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'mini_magick'
   gem 'image_processing', '~> 1.2'
-  gem 'carrierwave'
   gem 'mini_mime', '1.0.3'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
@@ -71,3 +68,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :development, :production, :test do
+  gem 'devise'
+  gem 'devise-i18n'
+  gem 'carrierwave'
+end
