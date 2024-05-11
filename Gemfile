@@ -73,4 +73,5 @@ group :development, :production, :test do
   gem 'devise'
   gem 'devise-i18n'
   gem 'carrierwave'
+  gem 'aws-sdk-s3'
 end
