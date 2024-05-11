@@ -1,6 +1,6 @@
 require './app/models/user'
 require './app/models/part'
-require './app/models/Shop'
+require './app/models/shop'
 
 User.create!(name: 'Guest User', email: 'guest@example.com', password: 'gest00', password_confirmation: 'gest00', introduction: 'ゲストアカウントです')
 Shop.create!(shop_name: '店舗１', address: '静岡市駿河区恩田原3-7' , business_hours: '8:00 ~ 17:00' , regular_holiday: '木曜日' , shop_gazou: '/assets/店舗画像/店舗１-ce084d3f84ac4332c10b7040ca1910a6e4ca98f1ab2e34be47f825251a644d66.jpeg', course_layout: '/assets/コースレイアウト/コース１-466c1fe73d1d65e17be8afebc3948c1fb75f61c26d69a006c1bd2efa1d2e7e46.jpeg')
