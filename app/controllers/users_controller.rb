@@ -16,8 +16,8 @@ class UsersController < ApplicationController
                         スーパーTZ-X スーパーX スーパーXX MS MA AR VS VZ]
     @part.motor_image = image_path_for_motor(@part.motor_name)
     @part.chassi_image = image_path_for_chassi(@part.chassi_name)
-    set_shop_categories
     @lap_time_to_races = @user.lap_time_to_races
+    set_shop_categories
   end
 
   def new
