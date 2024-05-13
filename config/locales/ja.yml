@@ -68,6 +68,8 @@ ja:
       taken: "は既に使用されています"
   activerecord:
     errors:
+      messages:
+        record_invalid: "レコードの保存に失敗しました"
       models:
         user:
           attributes:

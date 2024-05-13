@@ -5,7 +5,7 @@
         <% if @user.avatar? %>
           <%= image_tag @user.avatar.url, size: "75x75", class:'icon mt-2' %>
         <% else %>
-          <%= image_tag ("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png"), size: "75x75", class:'icon mt-2' %>
+          <%= image_tag (@defaults[0].default_image), size: "75x75", class:'icon mt-2' %>
         <% end %>
       </div>
       <p class="h2 text-start text-light"><%= @user.name %></p>
@@ -23,11 +23,11 @@
                   <% if machine.machine_image.present? %>
                     <%= image_tag machine.machine_image, class: 'img-fluid' %>
                   <% else %>
-                    <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
+                    <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
                   <% end %>
                 <% end %>
               <% else %>
-                <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
+                <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
               <% end %>
             </div>
           </div>
@@ -53,7 +53,7 @@
                 <%= image_tag(part.motor_image, class: 'img-fluid') %>
               <% end %>
             <% else %>
-              <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
+              <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
             <% end %>
           </div>
           <div class="card-body mt-3">
@@ -67,7 +67,7 @@
                 <%= image_tag(part.chassi_image, class: 'img-fluid') %>
               <% end %>
             <% else %>
-              <%= image_tag("/assets/デフォルト画像/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png", style: "height: 210px;") %>
+              <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
             <% end %>
           </div>
           <div class="card-body mt-3">

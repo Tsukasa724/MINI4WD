@@ -16,7 +16,7 @@
     <% unless (controller_name == 'users' && action_name == 'index') || controller_path.starts_with?('devise') || (controller_name == 'sessions' && action_name == 'new') || (controller_name == 'passwords' && (action_name == 'new' || action_name == 'edit')) %>
       <%= render 'layouts/header' %>
     <% end %>
-    <div class="section-single d-flex">
+    <div class="mask d-flex" style="background-image: url(<%= @defaults[5].default_image %>); background-position: center; width: 100%; max-width: 100%;">
       <div class="mask container-fluid py-5 text-center">
         <%= yield %>
       </div>
