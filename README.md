@@ -21,26 +21,55 @@
 それでも１人のレーサーとして「**自分のタイムを記録には残したい！**」「**もっと気軽に楽しみたい！**」そんな思いからアプリ作成に至りました。
 
 ## URL
+### Heroku
+https://mini4wd-a11855ad5076.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・　画面中部のログインボタンからメールアドレス・パスワード入力画面へ
 
-Things you may want to cover:
+・　メールアドレス「**guest@example.com**」 パスワード「**guest00**」を入力でゲスト用ユーザーへログインできます
 
-* Ruby version
+## 使用技術
+### フロントエンド
+**・　HTML** 
 
-* System dependencies
+**・　CSS** 
 
-* Configuration
+**・　JavaScript** 
 
-* Database creation
+**・　Bootstrap**
 
-* Database initialization
+### バックエンド
+**・　Ruby** 
 
-* How to run the test suite
+**・　MySQL** 
 
-* Services (job queues, cache servers, search engines, etc.)
+**・　Ruby On Rails** 
 
-* Deployment instructions
+**・　Google MAP API** 
 
-* ...
+### インフラ
+**・　AWS**
+
+**・　Heroku**
+
+### その他
+**・　GitHub**
+
+### 機能一覧
+**・　ユーザー登録/ログイン(devise)**
+
+**・　ミニ四駆情報登録 (マシン名/重量/モーター/シャーシ)**
+
+**・　店舗情報閲覧　（店名/営業時間/定休日/住所）**
+
+**・　ラップタイム登録**
+
+**・　他ユーザー情報閲覧**
+
+**・　Google MAP API**
+
+### ER図
+![画像名](./erb.jpg)
+
+### テスト
+**・　RSpec**
