@@ -3,7 +3,6 @@ require './app/models/shop'
 require './app/models/part'
 require './app/models/default'
 
-User.create!(name: 'Guest User', email: 'guest@example.com', password: 'guest00', password_confirmation: 'guest00', introduction: 'ゲストアカウントです')
 Default.create!(default_image: '/assets/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png')
 Default.create!(default_image: '/assets/IMG_2665-0eeaa858257540cc85c13c95ad94f8864bf64f2e1d77b209347b78982c6698ea.jpeg')
 Default.create!(default_image: '/assets/IMG_2664-66366549b47ce99a8de4a3e73e80a051623ed2be24c768a7149e78c006329261.jpeg')

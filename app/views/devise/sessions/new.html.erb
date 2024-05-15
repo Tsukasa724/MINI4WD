@@ -6,12 +6,12 @@
 
         <%= form_with model: @user, url: user_session_path, class: "Form AccountForm" do |f| %>
           <div class="mb-3">
-            <%= f.label :email, "メールアドレス (ゲストログインは'guest@example.com'を入力してください)", class: "form-label fw-bold", for: "exampleInputEmail1" %>
+            <%= f.label :email, "メールアドレス", class: "form-label fw-bold", for: "exampleInputEmail1" %>
             <%= f.text_field :email, class: "form-size d-grid col-12 col-md-6 mx-auto", for: "exampleInputEmail1", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :password, "パスワード (ゲストログインは'guest00'を入力してください)", class: "form-label fw-bold", for: "exampleInputPassword1" %>
+            <%= f.label :password, "パスワード", class: "form-label fw-bold", for: "exampleInputPassword1" %>
             <%= f.password_field :password, class: "form-size d-grid col-12 col-md-6 mx-auto", for: "exampleInputPassword1", placeholder: "パスワードを入力" %>
           </div>
 

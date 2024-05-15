@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
+  post 'guest_login', to: 'sessions#guest_login'
   
   devise_for :users, controllers: { 
     sessions: 'users/sessions',
