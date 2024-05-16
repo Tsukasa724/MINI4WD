@@ -68,6 +68,8 @@ ja:
       taken: "は既に使用されています"
   activerecord:
     errors:
+      messages:
+        record_invalid: "レコードの保存に失敗しました"
       models:
         user:
           attributes:
@@ -80,3 +82,5 @@ ja:
               confirmation: "が確認用パスワードと一致しません。"
             password_confirmation:
               confirmation: "パスワードが一致しません"
+  sessions:
+    logged_in: "guestuserでログインしました。"

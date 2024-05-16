@@ -4,9 +4,28 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
+  def show
+    @user = User.find(params[:id])
+    @machine = Machine.new
+    @machines = @user.machines
+    @part = Part.new
+    @parts = @user.parts
+    @text_options = %w[ノーマル レブチューン トルクチューン アトミックチューン ライトダッシュ ハイパーダッシュ スプリントダッシュ パワーダッシュ]
+    @text_options2 = %w[タイプ１ タイプ２ タイプ３ タイプ４ タイプ５ ゼロ スーパー１ スーパー２ FM スーパーFM FM-A スーパーTZ
+                        スーパーTZ-X スーパーX スーパーXX MS MA AR VS VZ]
+    @part.motor_image = image_path_for_motor(@part.motor_name)
+    @part.chassi_image = image_path_for_chassi(@part.chassi_name)
+    @lap_time_to_races = @user.lap_time_to_races
+    set_shop_categories
+  end
+
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -18,24 +37,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-    @machine = Machine.new
-    @machines = @user.machines
-    @part = Part.new
-    @parts = @user.parts
-    @text_options = ["ノーマル", "レブチューン", "トルクチューン", "アトミックチューン", "ライトダッシュ", "ハイパーダッシュ", "スプリントダッシュ", "パワーダッシュ"]
-    @text_options2 = ["タイプ１", "タイプ２", "タイプ３", "タイプ４", "タイプ５", "ゼロ", "スーパー１", "スーパー２", "FM", "スーパーFM", "FM-A", "スーパーTZ", "スーパーTZ-X", "スーパーX", "スーパーXX", "MS", "MA", "AR", "VS", "VZ"]
-    @part.motor_image = image_path_for_motor(@part.motor_name)
-    @part.chassi_image = image_path_for_chassi(@part.chassi_name)
-    set_shop_categories
-    @lap_time_to_races = @user.lap_time_to_races
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:name, :email, :password, :introduction, :avatar))
@@ -44,10 +45,6 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
-  end
-
-  def destroy
-
   end
 
   private

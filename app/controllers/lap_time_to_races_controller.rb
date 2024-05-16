@@ -1,8 +1,7 @@
 class LapTimeToRacesController < ApplicationController
-
   def new
     @lap_time_to_race = LapTimeToRace.new
-  end    
+  end
 
   def create
     @lap_time_to_race = current_user.lap_time_to_races.build(lap_time_to_race_params)
@@ -14,21 +13,6 @@ class LapTimeToRacesController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
   private
 
   def lap_time_to_race_params
