@@ -4,7 +4,7 @@
       <section class="AccountFormContainer">
         <p class="AccountFormContainer__title h1 mb-5 bg-body-secondary d-grid col-12 mx-auto">ログイン</p>
 
-        <%= form_with model: @user, url: user_session_path, class: "Form AccountForm" do |f| %>
+        <%= form_with model: @user, url: user_session_path , class: "Form AccountForm" do |f| %>
           <div class="mb-3">
             <%= f.label :email, "メールアドレス", class: "form-label fw-bold", for: "exampleInputEmail1" %>
             <%= f.text_field :email, class: "form-size d-grid col-12 col-md-6 mx-auto", for: "exampleInputEmail1", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>

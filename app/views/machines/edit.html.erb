@@ -15,10 +15,10 @@
         <%= f.text_field :machine_weight, class: "form-size d-grid col-12" %>
       </div>
       <div>
-        <ul>
-          <%= f.submit "編集を完了する", class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
-          <%= link_to "プロフィールへ戻る", user_path(current_user), class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
-        </ul>
+        <div>
+          <%= f.submit "編集を完了する", class: "col-8 col-md-5 btn btn-primary mx-3 mb-3 mx-auto" %>
+          <%= link_to "プロフィールへ戻る", user_path(current_user), class: "col-8 col-md-5 btn btn-primary mx-3 mb-3 mx-auto" %>
+        </div>
       </div>
     <% end %>
   </div>
