@@ -1,4 +1,10 @@
-class RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < ApplicationController
+  protected
+
+  def after_sign_up_path_for(resource)
+    user_path(resource)
+  end
+
   private
 
   def sign_up_params

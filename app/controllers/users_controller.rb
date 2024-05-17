@@ -31,7 +31,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if @user.save
-      redirect_to users_path
+      sign_in(@user)
+      redirect_to @user
     else
       render "new"
     end
@@ -50,6 +51,6 @@ class UsersController < ApplicationController
   private
 
   def set_shop_categories
-    @shop_categories = Shop.where(shop_name: %w[店舗１ 店舗２ 店舗３ 店舗４]).to_h { |shop| [shop.shop_name, shop.id] }
+    @shop_categories = Shop.where(shop_name: %w[株式会社タミヤ 小鹿第一工場 池田工場 第二物流センター]).to_h { |shop| [shop.shop_name, shop.id] }
   end
 end

@@ -137,10 +137,10 @@
           店舗選択
         </button>
         <ul class="dropdown-menu dropdown-menu-dark w-100">
-          <li><%= link_to "店舗１", shop_path(@shop_categories["店舗１"]), class: "dropdown-item" %></li>
-          <li><%= link_to "店舗２", shop_path(@shop_categories["店舗２"]), class: "dropdown-item" %></li>
-          <li><%= link_to "店舗３", shop_path(@shop_categories["店舗３"]), class: "dropdown-item" %></li>
-          <li><%= link_to "店舗４", shop_path(@shop_categories["店舗４"]), class: "dropdown-item" %></li>
+          <li><%= link_to "株式会社タミヤ", shop_path(@shop_categories["株式会社タミヤ"]), class: "dropdown-item" %></li>
+          <li><%= link_to "小鹿第一工場", shop_path(@shop_categories["小鹿第一工場"]), class: "dropdown-item" %></li>
+          <li><%= link_to "池田工場", shop_path(@shop_categories["池田工場"]), class: "dropdown-item" %></li>
+          <li><%= link_to "第二物流センター", shop_path(@shop_categories["第二物流センター"]), class: "dropdown-item" %></li>
         </ul>
       </div> 
     <% end %>
@@ -150,6 +150,7 @@
         <thead class="table-warning">
           <tr>
             <th scope="col">店舗名</th>
+            <th scope="col">ユーザー名</th>
             <th scope="col">ラップタイム</th>
           </tr>
         </thead>
@@ -157,6 +158,7 @@
           <% @lap_time_to_races.each do |lap| %>
             <tr>
               <td><%= link_to lap.shop.shop_name, shop_path(lap.shop) %></td>
+              <td><%= lap.user.name %></td>
               <td id="lapTimeCell"><%= lap.lap_time.present? ? lap.lap_time.strftime("%H:%M:%S") : "N/A" %></td>
             </tr>
           <% end %>
