@@ -29,6 +29,26 @@
   font-family: Impact;
 }
 
+.table_sticky {
+  display: block;
+  overflow-y: scroll;
+  height: calc(100vh/2);
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+.table_sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #8EB8FF;
+  border-top: #FFFFFF;
+}
+
+.table {
+  margin: 0 !important;
+}
+
 @media (max-width: 767px) {
   .img-size {
     width: 90%;

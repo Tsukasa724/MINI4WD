@@ -44,38 +44,62 @@
         </div>
       </div>
     </div>
-    <div class="container col-12 col-md-11">
-      <div class="row row-col-12 row-col-md-2 g-4 d-flex justify-content-center">
-        <div class="col-10 col-md">
-          <div class="card">
-            <% if @parts.present? %>
-              <% @parts.each do |part| %>
-                <%= image_tag(part.motor_image, class: 'img-fluid') %>
-              <% end %>
-            <% else %>
-              <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
+    <% if @parts.present? %>
+      <div class="table_sticky shadow-lg rounded mb-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">パーツの種類</th>
+              <th scope="col">パーツ名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @parts.each do |part| %>
+              <tr>
+                <th scope="row">モーター</th>
+                <td><%= part.motor_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">シャーシ</th>
+                <td><%= part.chassi_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">シャフト</th>
+                <td><%= part.shaft_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">プロペラシャフト</th>
+                <td><%= part.propeller_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">軸受け</th>
+                <td><%= part.gikuuke_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">ターミナル</th>
+                <td><%= part.terminal_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">タイヤ</th>
+                <td><%= part.tire_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">ホイール</th>
+                <td><%= part.wheel_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">ギヤー</th>
+                <td><%= part.gear_name %></td>
+              </tr>
+              <tr>
+                <th scope="row">ローラー</th>
+                <td><%= part.roller_name %></td>
+              </tr>
             <% end %>
-          </div>
-          <div class="card-body mt-3">
-            <p class="h5 fw-bold">【モーター】</p>
-          </div>
-        </div>
-        <div class="col-10 col-md">
-          <div class="card">
-            <% if @parts.present? %>
-              <% @parts.each do |part| %>
-                <%= image_tag(part.chassi_image, class: 'img-fluid') %>
-              <% end %>
-            <% else %>
-              <%= image_tag(@defaults[0].default_image, style: "height: 210px;") %>
-            <% end %>
-          </div>
-          <div class="card-body mt-3">
-            <p class="h5 fw-bold">【シャーシ】</p>
-          </div>
-        </div>
+          </tbody>
+        </table>
       </div>
-    </div>
+    <% end %>
     <% if current_user && @user == current_user %>
       <% if current_user.machines.empty? %>
         <div class="row col">
@@ -113,7 +137,39 @@
               </div>
               <div class="mb-3 col-12 text-start">
                 <%= f.label :chassi_name, "シャーシ", class: "form-label fw-bold fs-5" %>
-                <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12 mb-5" %>
+                <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :shaft_name, "シャフト", class: "form-label fw-bold fs-5" %>
+                <%= f.select :shaft_name, options_for_select(@text_options3), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :propeller_name, "プロペラシャフト", class: "form-label fw-bold fs-5" %>
+                <%= f.select :propeller_name, options_for_select(@text_options4), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :gikuuke_name, "軸受け", class: "form-label fw-bold fs-5" %>
+                <%= f.select :gikuuke_name, options_for_select(@text_options5), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :terminal_name, "ターミナル", class: "form-label fw-bold fs-5" %>
+                <%= f.select :terminal_name, options_for_select(@text_options6), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :tire_name, "タイヤ", class: "form-label fw-bold fs-5" %>
+                <%= f.select :tire_name, options_for_select(@text_options7), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :wheel_name, "ホイール", class: "form-label fw-bold fs-5" %>
+                <%= f.select :wheel_name, options_for_select(@text_options8), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :gear_name, "ギヤー", class: "form-label fw-bold fs-5" %>
+                <%= f.select :gear_name, options_for_select(@text_options9), {}, class: "form-select form-size d-grid col-12" %>
+              </div>
+              <div class="mb-3 col-12 text-start">
+                <%= f.label :roller_name, "ローラー", class: "form-label fw-bold fs-5" %>
+                <%= f.select :roller_name, options_for_select(@text_options10), {}, class: "form-select form-size d-grid col-12 mb-5" %>
               </div>
               <%= f.hidden_field :user_id,value: @user.id %>
               <div>

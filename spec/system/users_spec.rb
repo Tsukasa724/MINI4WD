@@ -7,10 +7,10 @@ RSpec.describe "マイページ", type: :system do
   let(:machine_name) { "testmachine" }
   let(:machine_weight) { "100.0" }
   let(:part) { FactoryBot.create(:part) }
-  let!(:shop1) { FactoryBot.create(:shop, shop_name: "店舗１") }
-  let!(:shop2) { FactoryBot.create(:shop, shop_name: "店舗２") }
-  let!(:shop3) { FactoryBot.create(:shop, shop_name: "店舗３") }
-  let!(:shop4) { FactoryBot.create(:shop, shop_name: "店舗４") }
+  let!(:shop1) { FactoryBot.create(:shop, shop_name: "株式会社タミヤ") }
+  let!(:shop2) { FactoryBot.create(:shop, shop_name: "小鹿第一工場") }
+  let!(:shop3) { FactoryBot.create(:shop, shop_name: "池田工場") }
+  let!(:shop4) { FactoryBot.create(:shop, shop_name: "第二物流センター") }
   let!(:default1) { FactoryBot.create(:default, default_image: '/assets/Noimage-0d0fe1307bbfe3fa780c9399bdf4bf0e070098b0bb718e4a35209490896f3b77.png') }
   let!(:default2) { FactoryBot.create(:default, default_image: '/assets/IMG_2665-0eeaa858257540cc85c13c95ad94f8864bf64f2e1d77b209347b78982c6698ea.jpeg') }
   let!(:default3) { FactoryBot.create(:default, default_image: '/assets/IMG_2664-66366549b47ce99a8de4a3e73e80a051623ed2be24c768a7149e78c006329261.jpeg') }
@@ -19,7 +19,7 @@ RSpec.describe "マイページ", type: :system do
   let!(:default6) { FactoryBot.create(:default, default_image: '/assets/IMG_2637-f908223678bd19be13cfdadd52e13954e46a06246929cee6dc52ef5aec08eb2c.jpeg') }
   let(:defaults) { [default1, default2, default3, default4, default5, default6] }
   let(:shop_categories) do
-    Shop.where(shop_name: %w[店舗１ 店舗２ 店舗３ 店舗４]).to_h { |shop| [shop.shop_name, shop.id] }
+    Shop.where(shop_name: %w[株式会社タミヤ 小鹿第一工場 池田工場 第二物流センター]).to_h { |shop| [shop.shop_name, shop.id] }
   end
 
   before do
@@ -76,7 +76,7 @@ RSpec.describe "マイページ", type: :system do
     expect(current_path).to eq user_path(user)
     expect(page).to have_content user.name
     @shop_categories = shop_categories
-    visit shop_path(@shop_categories["店舗１"])
+    visit shop_path(@shop_categories["家具式会社タミヤ"])
     expect(page).to have_content shop1.shop_name
   end
 end

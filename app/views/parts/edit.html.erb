@@ -8,7 +8,39 @@
       </div>
       <div class="mb-3 col-12 text-start">
         <%= f.label :chassi_name, "シャーシ", class: "form-label fw-bold fs-5" %>
-        <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12 mb-5" %>
+        <%= f.select :chassi_name, options_for_select(@text_options2), {}, class: "form-select form-size d-grid col-12 " %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :shaft_name, "シャフト", class: "form-label fw-bold fs-5" %>
+        <%= f.select :shaft_name, options_for_select(@text_options3), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :propeller_name, "プロペラシャフト", class: "form-label fw-bold fs-5" %>
+        <%= f.select :propeller_name, options_for_select(@text_options4), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :gikuuke_name, "軸受け", class: "form-label fw-bold fs-5" %>
+        <%= f.select :gikuuke_name, options_for_select(@text_options5), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :terminal_name, "ターミナル", class: "form-label fw-bold fs-5" %>
+        <%= f.select :terminal_name, options_for_select(@text_options6), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :tire_name, "タイヤ", class: "form-label fw-bold fs-5" %>
+        <%= f.select :tire_name, options_for_select(@text_options7), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :wheel_name, "ホイール", class: "form-label fw-bold fs-5" %>
+        <%= f.select :wheel_name, options_for_select(@text_options8), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :gear_name, "ギヤー", class: "form-label fw-bold fs-5" %>
+        <%= f.select :gear_name, options_for_select(@text_options9), {}, class: "form-select form-size d-grid col-12" %>
+      </div>
+      <div class="mb-3 col-12 text-start">
+        <%= f.label :roller_name, "ローラー", class: "form-label fw-bold fs-5" %>
+        <%= f.select :roller_name, options_for_select(@text_options10), {}, class: "form-select form-size d-grid col-12 mb-5" %>
       </div>
       <div>
         <div>
