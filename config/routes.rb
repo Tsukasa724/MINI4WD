@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
+  resources :chats, only: [:show, :create]
   resources :machines
   resources :lap_time_to_races
   resources :parts

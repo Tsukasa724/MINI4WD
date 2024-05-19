@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_12_102934) do
+ActiveRecord::Schema.define(version: 2024_05_19_153955) do
 
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2024_05_12_102934) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chats", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "defaults", charset: "utf8mb3", force: :cascade do |t|
@@ -82,6 +90,18 @@ ActiveRecord::Schema.define(version: 2024_05_12_102934) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "relationships", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", charset: "utf8mb3", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shops", charset: "utf8mb3", force: :cascade do |t|
     t.string "shop_name"
     t.string "address"
@@ -91,6 +111,13 @@ ActiveRecord::Schema.define(version: 2024_05_12_102934) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "shop_gazou"
     t.string "course_layout"
+  end
+
+  create_table "user_rooms", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|

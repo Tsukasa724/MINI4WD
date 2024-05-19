@@ -1,0 +1,23 @@
+<div class="container shadow-lg p-3 mb-5 bg-primary-subtle rounded">
+  <div class="container shadow-lg p-3 bg-primary-subtle rounded">
+    <div class="col-8 mx-auto">
+      <div class="d-flex justify-content-between bg-warning-subtle">
+        <h5 class="text-left mx-auto"><%= @user.name %></h5>
+      </div>
+      <% @chats.each do |chat| %>
+        <% if chat.user_id == current_user.id %>
+          <p class="text-righ col-8 bg-body-secondary mx-auto border border-black"><%= chat.message %></p>
+        <% else %>
+          <p class="text-left col-8 bg-warning-subtle mx-auto border border-black"><%= chat.message %></p>
+        <% end %>
+      <% end %>
+    
+    <%= form_with model: @chat do |f| %>
+      <%= f.text_field :message %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit "送信" %>
+    <% end %>
+    </div>
+    <%= link_to "ルームから出る", user_path(@user.id), class: "col-8 col-md-5 mx-auto btn btn-primary mt-5" %>
+  </div>
+</div>
