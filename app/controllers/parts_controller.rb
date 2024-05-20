@@ -16,9 +16,9 @@ class PartsController < ApplicationController
     @text_options7 = %w[レスポンスポンジタイヤ 中空ゴムタイヤ ソフトスリックタイヤ ハードスリックタイヤ バレルタイヤ オフセットとレッドタイヤ ローハイトタイヤ]
     @text_options8 = %w[小径ホイール 大径ホイール スポークホイール Yスポークホイール 5本スポークホイール ナローワンウェイホイール 小径カーボンホイール 大径カーボンホイール]
     @text_options9 = %w[ハイスピードカウンターギヤー 軽量超速ギヤー]
-    @text_options10= %w[17mmアルミベアリングローラー 19mmアルミベアリングローラー プラリング付きベアリングローラー 17mmプラリング付きベアリングローラー
-                        19mmプラリング付きベアリングローラー 9mmボールベアリングローラー 11mmボールベアリングローラー 低摩擦プラリングローラー 2段低摩擦プラローラー(13-13mm)
-                        2段アルミローラー(13-12mm) 2段アルミローラー(9-8mm) ゴムリング付き２段アルミローラー(13-12mm) 13mmオールアルミベアリングローラー]
+    @text_options10 = %w[17mmアルミベアリングローラー 19mmアルミベアリングローラー プラリング付きベアリングローラー 17mmプラリング付きベアリングローラー
+                         19mmプラリング付きベアリングローラー 9mmボールベアリングローラー 11mmボールベアリングローラー 低摩擦プラリングローラー 2段低摩擦プラローラー(13-13mm)
+                         2段アルミローラー(13-12mm) 2段アルミローラー(9-8mm) ゴムリング付き２段アルミローラー(13-12mm) 13mmオールアルミベアリングローラー]
   end
 
   def create
@@ -44,5 +44,6 @@ end
 private
 
 def part_params
-  params.require(:part).permit(:motor_name, :motor_image, :chassi_name, :chassi_image, :shaft_name, :propeller_name, :gikuuke_name, :terminal_name, :tire_name, :wheel_name, :gear_name, :roller_name, :user_id)
+  params.require(:part).permit(:motor_name, :motor_image, :chassi_name, :chassi_image, :shaft_name, :propeller_name, :gikuuke_name, :terminal_name, :tire_name, :wheel_name, :gear_name, :roller_name,
+                               :user_id)
 end

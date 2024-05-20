@@ -10,7 +10,7 @@
       </div>
       <% if current_user.email != @user.email %>
         <% if current_user.following?(@user) %>
-          <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+          <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
         <% else %>
           <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
         <% end %>
@@ -22,8 +22,8 @@
       <% if current_user && current_user.introduction.present? %>
         <p class="text-start text-light"><%= @user.introduction %></p>
       <% end %>
-      <%= link_to "フォロー一覧", user_followings_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
-      <%= link_to "フォロワー一覧", user_followers_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+      <%= link_to "フォロー中", user_followings_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+      <%= link_to "フォロワー", user_followers_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
     </div>
     <div class="container col-12 col-md-11 mb-5">
       <div class="card mb-3 col">

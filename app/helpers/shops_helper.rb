@@ -9,7 +9,7 @@ module ShopsHelper
         shop_image: '/assets/店舗画像/店舗１-ce084d3f84ac4332c10b7040ca1910a6e4ca98f1ab2e34be47f825251a644d66.jpeg',
         course_layout: '/assets/コースレイアウト/コース１-466c1fe73d1d65e17be8afebc3948c1fb75f61c26d69a006c1bd2efa1d2e7e46.jpeg'
       }
-    when 'タミヤ 小鹿第一工場'
+    when '小鹿第一工場'
       {
         address: '静岡市駿河区小鹿1丁目63-20',
         business_hours: '9:00 ~ 18:00',
@@ -17,7 +17,7 @@ module ShopsHelper
         shop_image: '/assets/店舗画像/店舗２-64c0219dae2664b969134bd6f1938aedb041d6dc4b59c76e0eab2ebe94562cac.jpeg',
         course_layout: '/assets/コースレイアウト/コース２-17167937954814b64327db44173e741801a7e827fab327b7181aa34cee769350.jpeg'
       }
-    when 'タミヤ 池田工場'
+    when '池田工場'
       {
         address: '静岡市駿河区池田144-1',
         business_hours: '8:30 ~ 17:00',

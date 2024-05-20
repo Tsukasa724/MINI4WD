@@ -76,7 +76,7 @@ RSpec.describe "マイページ", type: :system do
     expect(current_path).to eq user_path(user)
     expect(page).to have_content user.name
     @shop_categories = shop_categories
-    visit shop_path(@shop_categories["家具式会社タミヤ"])
+    visit shop_path(@shop_categories["株式会社タミヤ"])
     expect(page).to have_content shop1.shop_name
   end
 end
