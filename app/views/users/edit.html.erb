@@ -10,11 +10,15 @@
         <p>ゲストユーザーはユーザー情報の編集ができません。</p>
       <% else %>
         <div class="mb-3 col-12 text-start">
-          <%= f.label :name ,"名前", class: "form-label Form__label--required fw-bold fs-5" %>
+          <%= f.label :name , class: "form-label Form__label--required fw-bold fs-5" do %>
+            <span class="text-danger">*</span> 名前
+          <% end %>
           <%= f.text_field :name, class: "form-size d-grid col-12" %>
         </div>
         <div class="mb-3 col-12 text-start">
-          <%= f.label :email ,"メールアドレス", class: "form-label Form__label--required fw-bold fs-5" %>
+          <%= f.label :email , class: "form-label Form__label--required fw-bold fs-5" do %>
+            <span class="text-danger">*</span> メールアドレス
+          <% end %>
           <%= f.text_field :email, class: "form-size d-grid col-12" %>
         </div>
         <div class="mb-3 col-12 text-start">

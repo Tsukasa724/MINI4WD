@@ -12,7 +12,7 @@ class MachinesController < ApplicationController
     if @machine.save
       redirect_to user_path(current_user)
     else
-      render "new"
+      redirect_to user_path(current_user)
     end
   end
 

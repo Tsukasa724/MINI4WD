@@ -8,22 +8,30 @@
 
         <%= form_with model: @user, url: user_registration_path, class: "Form AccountForm", authenticity_token: true do |f| %>
           <div class="mb-3">
-            <%= f.label :name, "ユーザー名", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.label :name, class: "form-label Form__label--required fw-bold fs-5" do %>
+              <span class="text-danger">*</span> ユーザー名
+            <% end %>
             <%= f.text_field :name, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "ユーザー名を入力", autocomplete: "name" %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :email, "メールアドレス", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.label :email, class: "form-label Form__label--required fw-bold fs-5" do %>
+              <span class="text-danger">*</span> メールアドレス
+            <% end %>
             <%= f.text_field :email, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "メールアドレスを入力", autocomplete: "email", type: "email" %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :password, "パスワード (6文字以上)", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.label :password, class: "form-label Form__label--required fw-bold fs-5" do %>
+              <span class="text-danger">*</span> パスワード (6文字以上)
+            <% end %>
             <%= f.password_field :password, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "パスワードを入力" %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :password_confirmation, "確認用パスワード", class: "form-label Form__label--required fw-bold fs-5" %>
+            <%= f.label :password_confirmation, class: "form-label Form__label--required fw-bold fs-5" do %>
+              <span class="text-danger">*</span> 確認用パスワード
+            <% end %>
             <%= f.password_field :password_confirmation, class: "form-size d-grid col-12 col-md-6 mx-auto", placeholder: "確認用パスワードを入力" %>
           </div>
 
