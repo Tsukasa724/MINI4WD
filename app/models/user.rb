@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }, on: :create
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, on: :create
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
