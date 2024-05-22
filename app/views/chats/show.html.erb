@@ -11,12 +11,11 @@
           <p class="text-left col-8 bg-warning-subtle mx-auto border border-black"><%= chat.message %></p>
         <% end %>
       <% end %>
-    
-    <%= form_with model: @chat do |f| %>
-      <%= f.text_field :message %>
-      <%= f.hidden_field :room_id %>
-      <%= f.submit "送信" %>
-    <% end %>
+      <%= form_with model: @chat do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+        <%= f.submit "送信" %>
+      <% end %>
     </div>
     <%= link_to "ルームから出る", user_path(@user.id), class: "col-8 col-md-5 mx-auto btn btn-primary mt-5" %>
   </div>
