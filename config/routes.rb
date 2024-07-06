@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/index'
   root 'users#index'
   post 'guest_login', to: 'sessions#guest_login'
   
@@ -22,6 +23,11 @@ Rails.application.routes.draw do
   resources :lap_time_to_races
   resources :parts
   resources :shops
+  resources :searches do
+    collection do
+      get :search
+    end
+  end
 
   get 'shops/index'
   get 'parts/index'

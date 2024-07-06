@@ -1,0 +1,30 @@
+<div class="container shadow-lg p-3 mb-5 bg-primary-subtle rounded">
+  <div class="container shadow-lg p-3 bg-primary-subtle rounded">
+    <h3 class="card-title bg-body-secondary">ユーザー一覧</h3>
+    <p>現在の登録ユーザー数: <%= @user_count %>人</p>
+    <div class="container shadow-lg p-3 bg-primary-subtle rounded mt-3 mb-3">
+      <table class="container col-12">
+        <thead>
+          <tr>
+            <th>プロフィール画像</th>
+            <th>ユーザー名</th>
+            <th>登録日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <% if user.avatar.present? %>
+                  <%= image_tag user.avatar.url, class:'searches_icon mt-2' %>
+                <% end %>
+              </td>
+              <td><%= link_to user.name, user_path(user.id) %></td>
+              <td><%= user.created_at.to_s(:datetime_jp) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -74,4 +74,5 @@ group :development, :production, :test do
   gem 'devise'
   gem 'carrierwave'
   gem 'aws-sdk-s3'
+  gem 'ransack'
 end
