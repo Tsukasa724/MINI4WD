@@ -21,17 +21,13 @@
           <% end %>
           <%= f.text_field :email, class: "form-size d-grid col-12" %>
         </div>
-        <div class="mb-3 col-12 text-start">
+        < class="mb-3 col-12 text-start">
           <%= f.label :introduction ,"ひとこと紹介文", class: "form-label Form__label--required fw-bold fs-5" %>
           <%= f.text_area :introduction, class: "form-size d-grid col-12 mb-5" %>
         </div>
       <% end %>
-      <div>
-        <ul>
-          <%= f.submit "編集を完了する", class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
-          <%= link_to "プロフィールへ戻る", user_path(current_user), class: "col-8 col-md-5 btn btn-primary mx-3 mb-3" %>
-        </ul>
-      </div>
+      <%= f.submit "編集を完了する", class: "col-12 col-md-5 btn btn-primary mb-3" %>
+      <%= link_to "プロフィールへ戻る", user_path(current_user), class: "col-12 col-md-5 btn btn-primary mb-3" %>
     <% end %>
   </div>
 </div>

@@ -8,22 +8,22 @@
           <%= image_tag (@defaults[0].default_image), size: "75x75", class:'icon mt-2' %>
         <% end %>
       </div>
+      <p class="h2 text-md-start text-light"><%= @user.name %></p>
       <% if current_user.email != @user.email %>
         <% if current_user.following?(@user) %>
-          <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+          <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
         <% else %>
-          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "col-10 col-md-11 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
         <% end %>
         <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
-          <%= link_to 'チャットを始める', chat_path(@user.id), class: "col-8 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+          <%= link_to 'チャットを始める', chat_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
         <% end %>
       <% end %>
-      <p class="h2 text-start text-light"><%= @user.name %></p>
       <% if current_user && current_user.introduction.present? %>
-        <p class="text-start text-light"><%= @user.introduction %></p>
+        <p class="text-md-start text-light"><%= @user.introduction %></p>
       <% end %>
-      <%= link_to "フォロー中", user_followings_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
-      <%= link_to "フォロワー", user_followers_path(@user.id), class: "col-8 col-md-5 btn btn-info btn-outline-dark mx-auto fw-bold mt-3 mb-3" %>
+      <%= link_to "フォロー", user_followings_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
+      <%= link_to "フォロワー", user_followers_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
     </div>
     <div class="container col-12 col-md-11 mb-5">
       <div class="card mb-3 col">
@@ -136,7 +136,7 @@
               </div>
               <%= f.hidden_field :user_id,value: @user.id %>
               <div>
-                <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
+                <%= f.submit "登録完了", class: "col-5 btn btn-primary mb-3" %>
               </div>
             <% end %>
           </div>
@@ -189,7 +189,7 @@
               </div>
               <%= f.hidden_field :user_id,value: @user.id %>
               <div>
-                <%= f.submit "登録完了", class: "btn btn-primary mb-3" %>
+                <%= f.submit "登録完了", class: "col-5 btn btn-primary mb-3" %>
               </div>
             <% end %>
           </div>
@@ -201,8 +201,8 @@
       <% if current_user.parts.any? %>
         <%= link_to "パーツ情報 編集", edit_part_path(current_user.parts.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-5 mt-md-5" %>
       <% end %>
-      <div class="row col-12 mx-auto mb-4 border rounded bg-body-secondary">
-        <p class="display-5 fw-bold mt-3">登録店舗にラップタイムを投稿</p>
+      <div class="row col-12 mx-auto mb-4 border rounded bg-warning-subtle">
+        <p class="display-5 fw-bold mt-3">ラップタイム投稿</p>
       </div>
       <div class="dropdown col-8 mx-auto">
         <button class="btn btn-secondary btn-lg dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -221,9 +221,9 @@
       <table class="table">
         <thead class="table-warning">
           <tr>
-            <th scope="col">店舗名</th>
-            <th scope="col">ユーザー名</th>
-            <th scope="col">ラップタイム</th>
+            <th scope="col">店舗</th>
+            <th scope="col">ユーザー</th>
+            <th scope="col">タイム</th>
           </tr>
         </thead>
         <tbody>

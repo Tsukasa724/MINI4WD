@@ -1,6 +1,6 @@
 <div class="container shadow-lg p-3 mb-5 bg-primary-subtle rounded">
   <div class="container shadow-lg p-3 bg-primary-subtle rounded">
-    <div class="row col-8 col-md-5 mx-auto mb-4 border border-info rounded bg-white">
+    <div class="row col-11 mx-auto mb-4 border border-info rounded bg-white">
       <p class="h1 mt-2"><%= @shop.shop_name %></p>
     </div>
     <div class="container col-12 col-md-11 mb-5">
@@ -13,9 +13,9 @@
           </div>
           <div class="col-12">
             <div class="card">
-              <p class="h1 mt-2 bg-body-secondary">営業時間</p>
+              <p class="h1 bg-body-secondary">営業時間</p>
               <p class="mozi_size mt-2"><%= @shop.business_hours%></p>
-              <p class="h1 mt-2 bg-body-secondary">定休日</p>
+              <p class="h1 bg-body-secondary">定休日</p>
               <p class="mozi_size mt-2"><%= @shop.regular_holiday %></p>
             </div>
           </div>
@@ -37,7 +37,7 @@
                   <p class="h3 fw-bold mt-5 mb-4">ラップタイム 登録</p>
                   <%= form_with model: @lap_time_to_race do |f| %>
                     <div class="mb-3 col-12 text-start">
-                      <%= f.text_field :lap_time, id: "timeInput", class: "form-size d-grid col-12 mb-5", placeholder: "ラップタイムを入力", required: true %>
+                      <%= f.text_field :lap_time, id: "timeInput", class: "form-size d-grid col-12", placeholder: "ラップタイムを入力", required: true %>
                     </div>
                     <%= f.hidden_field :user_id,value: current_user.id %>
                     <%= f.hidden_field :shop_id,value: @shop.id %>
@@ -51,8 +51,8 @@
                 <table class="table shadow-lg">
                   <thead class="table-warning">
                     <tr>
-                      <th scope="col">ユーザー名</th>
-                      <th scope="col">ラップタイム</th>
+                      <th scope="col">ユーザー</th>
+                      <th scope="col">タイム</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -79,7 +79,7 @@
                 </div>
               </div>
               <div class="card">
-                <p class="h1 mt-2 bg-body-secondary">住所</p>
+                <p class="h1 bg-body-secondary">住所</p>
                 <p class="mozi_size mt-2"><%= @shop.address %></p>
               </div>
             </div>
