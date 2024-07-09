@@ -9,21 +9,21 @@
         <% end %>
       </div>
       <p class="h2 text-md-start text-light"><%= @user.name %></p>
-      <% if current_user.email != @user.email %>
-        <% if current_user.following?(@user) %>
-          <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
-        <% else %>
-          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "col-10 col-md-11 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
-        <% end %>
-        <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
-          <%= link_to 'チャットを始める', chat_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
-        <% end %>
-      <% end %>
       <% if current_user && current_user.introduction.present? %>
         <p class="text-md-start text-light"><%= @user.introduction %></p>
       <% end %>
       <%= link_to "フォロー", user_followings_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
       <%= link_to "フォロワー", user_followers_path(@user.id), class: "col-10 col-md-5 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
+      <% if current_user.email != @user.email %>
+        <% if current_user.following?(@user) %>
+          <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "col-10 col-md-11 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
+        <% else %>
+          <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "col-10 col-md-11 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
+        <% end %>
+        <% if current_user != @user && current_user.following?(@user) && @user.following?(current_user) %>
+          <%= link_to 'チャットを始める', chat_path(@user.id), class: "col-10 col-md-11 btn btn-light btn-outline-dark mx-auto fw-bold mb-3" %>
+        <% end %>
+      <% end %>
     </div>
     <div class="container col-12 col-md-11 mb-5">
       <div class="card mb-3 col">
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card-body p-1 mt-2 mt-lg-5">
+            <div class="card-body p-1">
               <% @machines.each do |machine| %>
                 <h3 class="card-title bg-body-secondary">マシン名</h3>
                 <p class="card-text h5 fw-bold"><%= machine.machine_name%></p>
@@ -61,7 +61,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">パーツの種類</th>
+              <th scope="col">カテゴリー</th>
               <th scope="col">パーツ名</th>
             </tr>
           </thead>
@@ -196,16 +196,16 @@
         </div>
       <% end %>
       <% if current_user.machines.any? %>
-        <%= link_to "マシン情報 編集", edit_machine_path(current_user.machines.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-5 mt-5" %>
+        <%= link_to "マシン情報 編集", edit_machine_path(current_user.machines.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-2 mt-2" %>
       <% end %>
       <% if current_user.parts.any? %>
         <%= link_to "パーツ情報 編集", edit_part_path(current_user.parts.first.id), class: "col-8 col-md-5  btn btn-primary mx-3 mb-5 mt-md-5" %>
       <% end %>
-      <div class="row col-12 mx-auto mb-4 border rounded bg-warning-subtle">
-        <p class="display-5 fw-bold mt-3">ラップタイム投稿</p>
+      <div class="row col-12 mx-auto mb-3 border rounded bg-warning-subtle">
+        <p class="display-6 fw-bold mt-3">ラップタイム投稿</p>
       </div>
       <div class="dropdown col-8 mx-auto">
-        <button class="btn btn-secondary btn-lg dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           店舗選択
         </button>
         <ul class="dropdown-menu dropdown-menu-dark w-100">
@@ -216,7 +216,7 @@
         </ul>
       </div> 
     <% end %>
-    <div class="container col-12 shadow-lg p-3 bg-primary-subtle rounded mt-5">
+    <div class="container col-12 shadow-lg p-3 bg-primary-subtle rounded mt-3">
       <p class="h3 fw-bold mt-3 mb-3">ラップタイム一覧</p>
       <table class="table">
         <thead class="table-warning">

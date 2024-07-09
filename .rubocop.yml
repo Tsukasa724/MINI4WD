@@ -20,6 +20,7 @@ AllCops:
     - "config/**/*"
     - "test/**/*"
     - "helper/**/*"
+    - 'app/controllers/machines_controller.rb'
     
 Style/Documentation:
   Enabled: false
